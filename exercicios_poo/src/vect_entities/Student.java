@@ -2,6 +2,7 @@ package vect_entities;
 
 public class Student {
 	private String name;
+	private String email;
 	
 	public Student(String name, String email) {
 		this.name = name;
@@ -24,7 +25,9 @@ public class Student {
 		this.email = email;
 	}
 
-	private String email;
-	
+	@Override
+	public String toString() {
+		return name + "," + email;
+	}	
 	
 }
