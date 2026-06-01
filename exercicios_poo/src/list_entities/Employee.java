@@ -4,7 +4,7 @@ public class Employee {
 		private int id;
 		private String name;
 		private double salary;
-		
+		private double increase;
 		
 		public Employee(int id, String name, double salary) {
 			super();
@@ -26,5 +26,11 @@ public class Employee {
 		}
 		public double getSalary() {
 			return salary;
+		}
+		
+		public void salaryIncrease(double increase,double percentage ) {
+			this.increase= increase;
+			this.increase = salary * (percentage /(100.0 + 1));
+			
 		}
 }
