@@ -1,12 +1,11 @@
 package list_entities;
 
 public class Employee {
-		private int id;
 		private String name;
+		private int id;
 		private double salary;
-		private double increase;
 		
-		public Employee(int id, String name, double salary) {
+		public Employee(int id,String name, double salary) {
 			super();
 			this.id = id;
 			this.name = name;
@@ -28,9 +27,13 @@ public class Employee {
 			return salary;
 		}
 		
-		public void salaryIncrease(double increase,double percentage ) {
-			this.increase= increase;
-			this.increase = salary * (percentage /(100.0 + 1));
+		public void salaryIncrease(double percentage ) {
+			double increase = salary * (percentage /(100.0 + 1));
 			
+		}
+
+		@Override
+		public String toString() {
+			return id + name + salary;
 		}
 }
