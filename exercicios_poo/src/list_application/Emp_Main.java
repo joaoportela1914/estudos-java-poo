@@ -20,36 +20,50 @@ public class Emp_Main {
 		
 		for(int i=0; i<n; i++) {
 			System.out.println();
-			System.out.println("Employee #" + (i+1));
+			System.out.println("Employee #" + (i+1));		
 			System.out.print("Id:");
-			int ID = sc.nextInt();
-			System.out.print("Name:");
-			String name = sc.nextLine();
-			sc.nextLine();
-			System.out.print("Salary:");
-			double salary = sc.nextDouble();	
+			Integer ID = sc.nextInt();
 			
-			employee.add(new Employee(ID,name,salary));
+			while (hasId(employee, ID)) {
+				System.out.print("Id already taken. Try again: ");
+				ID = sc.nextInt();
+			}
+			
+			System.out.print("Name:");
+			sc.nextLine();
+			String name = sc.nextLine();
+			System.out.print("Salary:");
+			Double salary = sc.nextDouble();	
+			
+			Employee emp = new Employee(ID,name,salary);
+			employee.add(emp);
 		}
 		System.out.println();
 		System.out.println("Enter the employee id that will have salary increase: ");
 		int searchId = sc.nextInt();
-		Employee idsearch = employee.stream().filter(x -> x.getId() == searchId).findFirst().orElse(null);
-		if(idsearch == null) {
+		Employee emp = employee.stream().filter(x -> x.getId() == searchId).findFirst().orElse(null);
+		if(emp == null) {
 			System.out.println("This id does not exist! ");		
 		}
 		else {
 			System.out.print("Enter the percentage:");
-			int percentage = sc.nextInt();
-			idsearch.salaryIncrease(percentage);
+			double percentage = sc.nextInt();
+			emp.salaryIncrease(percentage);
 		}
 		
 		System.out.println();
 		System.out.println("List of employees:");
-		System.out.println(employee.toString());
+		for (Employee e : employee) {
+			System.out.println(e);
+		}
 		
 		sc.close();
         }
+	public static boolean hasId(List<Employee> list, int id) {
+		Employee emp = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		return emp != null;
+	}
+	
 	}
 
 

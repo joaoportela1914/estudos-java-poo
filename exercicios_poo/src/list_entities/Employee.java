@@ -2,8 +2,8 @@ package list_entities;
 
 public class Employee {
 		private String name;
-		private int id;
-		private double salary;
+		private Integer id;
+		private Double salary;
 		
 		public Employee(int id,String name, double salary) {
 			super();
@@ -28,7 +28,7 @@ public class Employee {
 		}
 		
 		public void salaryIncrease(double percentage ) {
-			double increase = salary * (percentage /(100.0 + 1));
+			salary = salary * (percentage /(100.0 + 1));
 			
 		}
 
