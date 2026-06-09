@@ -16,7 +16,7 @@ public class Mat_Main {
 		for (int i=0; i<mat.length; i++) {
 			for (int j=0; j<mat[i].length; j++) {
 				mat[i][j] = sc.nextInt();
-				if (mat[i][j] <0) {
+				if (mat[i][j] < 0) {
 					count++;
 				}
 			}
