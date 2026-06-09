@@ -47,7 +47,7 @@ public class Emp_Main {
 		}
 		else {
 			System.out.print("Enter the percentage:");
-			double percentage = sc.nextInt();
+			double percentage = sc.nextDouble();
 			emp.salaryIncrease(percentage);
 		}
 		
