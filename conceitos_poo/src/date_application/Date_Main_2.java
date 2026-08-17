@@ -26,6 +26,7 @@ public class Date_Main_2 {
 		System.out.println("d06 " + ftm3.format(d06));
 		System.out.println("d05 " + ftm4.format(d05));
 		System.out.println("d06 " + ftm5.format(d06));
+	
 		
 	}
 
