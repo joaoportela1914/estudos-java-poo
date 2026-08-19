@@ -20,33 +20,34 @@ public class CompMain {
 			
 			System.out.print("Enter department's name: ");
 			String departmentName = sc.nextLine();
-			System.out.print("Enter worker data: ");
-			System.out.println("Name");
+			System.out.println("Enter worker data: ");
+			System.out.print("Name: ");
 			String workerName = sc.nextLine();
-			System.out.println("Level");
+			System.out.print("Level: ");
 			String workerLevel = sc.nextLine();
 			System.out.println("Base salary");
 			double baseSalary = sc.nextDouble();
 			
 			Worker worker = new Worker(workerName, WorkerLevel.valueOf(workerLevel), baseSalary, new Department(departmentName));
 			
+			DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
 			System.out.print("How many contracts to this worker? ");
 			int n = sc.nextInt();
-			
+
 			for (int i = 1; i <= n; i++) {
 			    System.out.println("Enter contract #" + i + " data");
 			    System.out.print("Date (DD/MM/YYYY): ");
-			    LocalDate contractDate = LocalDate.parse(sc.next()); 			}
-			for(int i = 1; i<=n; i++) {
-				System.out.println("Enter contract #" + i + "data");
-				System.out.print("Date (DD/MM/YYYY");
-				LocalDate contractDate = LocalDate.parse(sc.next());
-				System.out.print("Value per hour: ");
-				double valuePerHour = sc.nextDouble();
-				System.out.print("Duration (hours): ");
-				int hours = sc.nextInt();
-				HourContract contract = new HourContract(contractDate, valuePerHour, hours);
-				worker.addContract(contract);
+			    LocalDate contractDate = LocalDate.parse(sc.next(), fmt); 
+			    
+			    System.out.print("Value per hour: ");
+			    double valuePerHour = sc.nextDouble();
+			    
+			    System.out.print("Duration (hours): ");
+			    int hours = sc.nextInt();
+			    
+			    HourContract contract = new HourContract(contractDate, valuePerHour, hours);
+			    worker.addContract(contract);
 			}
 			
 			System.out.println();
