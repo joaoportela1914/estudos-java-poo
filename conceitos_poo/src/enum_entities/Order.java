@@ -48,5 +48,12 @@ public class Order {
 		return "Order [id=" + id + ", moment=" + moment + ", status=" + status + "]";
 	}
 	
+	public void addItem () {
+		
+	}
+	public void removeItem () {
+		
+	}
+	
 }
 
