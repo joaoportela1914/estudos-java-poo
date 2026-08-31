@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import list_entities.Employee;
+import poly_entities.Employee;
 import poly_entities.OutsourcedEmployee;
 
 public class MainEmployee {
@@ -39,14 +39,14 @@ public class MainEmployee {
 				list.add(new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge));
 			}
 			else {
-				list.add(new Employee(hours, name, valuePerHour));
+				list.add(new Employee(name, hours, valuePerHour));
 			}
 		}
 		
 		System.out.println();
 		System.out.println("PAYMENTS:");
 		for (Employee emp : list) {
-			System.out.println(emp.getName() + " - $ " + String.format("%.2f", emp.payment()));
+			System.out.println(emp.getName() + " - $ " + emp.payment());
 		}
 		
 		sc.close();
