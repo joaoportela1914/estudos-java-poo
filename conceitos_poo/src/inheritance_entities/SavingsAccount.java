@@ -1,6 +1,6 @@
 package inheritance_entities;
 
-public class SavingsAccount extends Account{
+public final class SavingsAccount extends Account{
 	
 	private Double interestRate;
 	
@@ -25,7 +25,7 @@ public class SavingsAccount extends Account{
 		balance += balance * interestRate;
 	}
 	@Override
-	public void withdraw(double amount) {
+	public final void withdraw(double amount) {
 		balance -= amount;
 	}
 }
