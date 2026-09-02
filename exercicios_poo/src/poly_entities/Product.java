@@ -1,8 +1,8 @@
 package poly_entities;
 
 public class Product {
-	 private String name;
-	 private Double price;
+	 protected String name;
+	 protected Double price;
 	 
 	 public Product(){
 		 
@@ -31,7 +31,9 @@ public class Product {
 	 }
 	 
 	 public String priceTag() {
-		 
+		 return name 
+					+ " $ " 
+					+ String.format("%.2f", price);
 	 }
 	 
 }
