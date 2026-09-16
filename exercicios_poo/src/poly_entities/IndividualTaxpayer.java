@@ -1,6 +1,6 @@
 package poly_entities;
 
-public abstract class IndividualTaxpayer extends Taxpayer{
+public class IndividualTaxpayer extends Taxpayer{
 	
 	private Double healthExpenditures;
 

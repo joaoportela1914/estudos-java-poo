@@ -30,10 +30,4 @@ public abstract class Taxpayer {
 			this.anualIncome = anualIncome;
 		}
 		public abstract double tax();
-		public abstract double taxAmount();
-		public abstract double totalTax();
-		
-		
-		
-		
 }

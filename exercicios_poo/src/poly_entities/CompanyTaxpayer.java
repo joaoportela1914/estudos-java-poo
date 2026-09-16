@@ -1,6 +1,6 @@
 package poly_entities;
 
-public abstract class CompanyTaxpayer extends Taxpayer{
+public class CompanyTaxpayer extends Taxpayer{
 		private int totalEmployees;
 		
 		public CompanyTaxpayer() {
@@ -21,15 +21,17 @@ public abstract class CompanyTaxpayer extends Taxpayer{
 
 		@Override
 		public double tax() {
-			double basicTax;
-			if ( totalEmployees > 10) {
-				basicTax = anualIncome * 0.16;
-			}
-			else {
-				basicTax = anualIncome * 0.14;
-			}
-			return basicTax;
+		    double basicTax;
+		    if (totalEmployees > 10) {
+		        basicTax = anualIncome * 0.14; 
+		    }
+		    else {
+		        basicTax = anualIncome * 0.16;
+		    }
+		    return basicTax;
 		}
+	}
+
 
 		
-}
+
