@@ -16,7 +16,8 @@ public class UsedProduct extends Product{
 	}
 
 	public void setManufactureDate(LocalDate manufactureDate) {
-		this.manufactureDate = manufactureDate}
+		this.manufactureDate = manufactureDate;
+		}
 	
 	@Override
 	public String priceTag() {
