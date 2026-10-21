@@ -6,21 +6,31 @@ import interface_entities.CarRental;
 import interface_entities.Invoice;
 
 public class RentalService {
-	private Double perDay;
-	private Double perHour;
+	private Double pricePerDay;
+	private Double pricePerHour;
 	
-	private BrazilTaxService taxService;
+	private TaxService taxService;
 
-	public RentalService(Double perDay, Double perHour, BrazilTaxService taxService) {
-		this.perDay = perDay;
-		this.perHour = perHour;
+	public RentalService(Double pricePerDay, Double pricePerHour, TaxService taxService) {
+		this.pricePerDay = pricePerDay;
+		this.pricePerHour = pricePerHour;
 		this.taxService = taxService;
 	}
 	
 	public void processInvoice( CarRental carRental) {
 		
 		double minutes = Duration.between(carRental.getStart(), carRental.getFinish()).toMinutesPart();
-		carRental.setInvoice(new Invoice(50.0,10.0));
+		double hours = minutes/60;
+		double basicPayment;
+		if (hours < 12) {
+			basicPayment = pricePerHour * Math.ceil(hours);
+		}
+		else {
+			basicPayment = pricePerDay * Math.ceil(hours/24);
+		}
+		
+		double tax = taxService.tax(basicPayment);
+		carRental.setInvoice(new Invoice(basicPayment, tax));
 	}
 }
 	
